@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #121212;
+    color: #f1f1f1;
+    margin:0;
+    padding:0;
+    display:flex;
+    justify-content:center;
+}
+
+.container {
+    max-width:950px;
+    margin:30px auto;
+    background:#1e1e1e;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+h1,h2{text-align:center;margin-bottom:20px;}
+
+.modo-toggle{text-align:right;margin-bottom:15px;}
+.modo-toggle button{
+    padding:8px 15px;
+    border:none;
+    border-radius:8px;
+    background:#4CAF50;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+    transition:0.3s;
+}
+.modo-toggle button:hover{ transform: scale(1.05); }
+
+.form, .filtro-periodo{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:25px;}
+input,select{flex:1;padding:12px;border-radius:10px;border:none;background:#2c2c2c;color:white;}
+input:focus,select:focus{outline:none;box-shadow:0 0 8px #4CAF50;}
+button#adicionar, button#filtrarPeriodo, button#limparFiltro{padding:12px 18px;border:none;border-radius:10px;background:#4CAF50;color:white;cursor:pointer;transition:0.3s;}
+button#adicionar:hover, button#filtrarPeriodo:hover, button#limparFiltro:hover{transform:scale(1.05);}
+
+.dashboard{display:flex;gap:20px;flex-wrap:wrap;}
+.registros-box,.resumo-box{flex:1;min-width:280px;}
+#registros{list-style:none;padding:0;max-height:300px;overflow-y:auto;}
+#registros li{padding:12px 15px;border-radius:10px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;opacity:0;transform:translateY(-20px);animation:slideIn 0.5s forwards; cursor:pointer;}
+#registros li.entrada{background:#28a74533;color:#28a745;}
+#registros li.saida{background:#dc354533;color:#dc3545;}
+#registros li button{background:transparent;border:none;font-size:18px;color:#888;cursor:pointer;transition:0.3s;}
+#registros li button:hover{color:#e74c3c;}
+
+.resumo-box p{font-size:18px;margin:5px 0;}
+.graficos{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+canvas{background:#2c2c2c;border-radius:15px;padding:10px;}
+
+@keyframes slideIn{to{opacity:1;transform:translateY(0);}}
+
+body.dark {
+    background: #1a1a1a;
+    color: #f1f1f1;
+}
+body.dark .container { background: #242424; box-shadow: 0 10px 25px rgba(0,0,0,0.7);}
+body.dark input, body.dark select{ background:#2c2c2c; color:#f1f1f1; }
+body.dark button#adicionar,
+body.dark button#filtrarPeriodo,
+body.dark button#limparFiltro,
+body.dark .modo-toggle button { background:#4CAF50; color:white; }
+body.dark #registros li.entrada { background:#28a74533; color:#28a745; }
+body.dark #registros li.saida { background:#dc354533; color:#dc3545; }
+body.dark canvas { background:#2c2c2c; }

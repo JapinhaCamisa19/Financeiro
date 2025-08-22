@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard ADM Avançado</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+<div class="container">
+  <h1>💼 financeiro</h1>
+
+  <div class="modo-toggle">
+    <button id="toggleModo">🌙</button>
+  </div>
+
+  <div class="form">
+    <input type="text" id="descricao" placeholder="Descrição">
+    <input type="number" id="valor" placeholder="Valor">
+    <select id="tipo">
+      <option value="entrada">Entrada</option>
+      <option value="saida">Saída</option>
+    </select>
+    <input type="text" id="data" placeholder="Data">
+    <button id="adicionar">Adicionar</button>
+  </div>
+
+  <div class="filtro-periodo">
+    <label>De: <input type="date" id="dataInicio"></label>
+    <label>Até: <input type="date" id="dataFim"></label>
+    <button id="filtrarPeriodo">Filtrar</button>
+    <button id="limparFiltro">Limpar Filtro</button>
+  </div>
+
+  <div class="dashboard">
+    <div class="registros-box">
+      <h2>Registros</h2>
+      <input type="text" id="pesquisar" placeholder="Pesquisar registro">
+      <ul id="registros"></ul>
+    </div>
+
+    <div class="resumo-box">
+      <h2>Resumo</h2>
+      <p>Total de Registros: <span id="total-registros">0</span></p>
+      <p>Entradas: <span id="total-entrada">0</span></p>
+      <p>Saídas: <span id="total-saida">0</span></p>
+      <p>Saldo: <span id="saldo">0</span></p>
+      <button id="exportar">📄 Exportar PDF</button>
+    </div>
+  </div>
+
+  <h2>Gráficos</h2>
+  <div class="graficos">
+    <canvas id="graficoBarra"></canvas>
+    <canvas id="graficoPizza"></canvas>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
